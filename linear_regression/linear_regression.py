@@ -33,8 +33,18 @@ def gradient_descent(X: np.ndarray, y: np.ndarray, theta: np.ndarray, alpha: flo
 theta_init = np.zeros(2)
 theta_final, losses = gradient_descent(X, y, theta_init, alpha=0.0001, num_iters=1000)
 
+plt.figure()
 plt.plot(losses)
 plt.xlabel('Iteration')
 plt.ylabel('Cost')
 plt.title('Convergence of Gradient Descent')
+
+plt.figure()
+y_pred = h(X, theta_final)
+plt.scatter(x, y)
+plt.plot(x, y_pred)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Linear Regression: Data and Learned Model")
+
 plt.show()
